@@ -5,7 +5,7 @@
 def multiplicar_matrizes(mat1, mat2, mat3, tam):
     for i in range(tam):
         for j in range(tam):
-            acumula = '0'
+            acumula = 0
             for k in range(tam):
                 acumula = acumula + mat1[i][k]*mat2[k][j]
             mat3[i][j] = acumula
