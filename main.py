@@ -2,14 +2,21 @@
 # -*- coding: utf-8 -*-
 
 #função que multiplica matrizes
-def multiplicar_matrizes(mat1, mat2, mat3, tam):
-    for i in range(tam):
-        for j in range(tam):
-            acumula = 0
-            for k in range(tam):
-                acumula = acumula + mat1[i][k]*mat2[k][j]
-            mat3[i][j] = acumula
-    return mat3
+def mult_matrix(bool_matrix, alpha_matrix):
+
+    new_matrix = []
+
+    for i in range(len(bool_matrix)):
+        new_row = []
+        for j in range(len(bool_matrix)):
+            new_element = ''
+            for mult in range(len(bool_matrix)):
+                if(bool_matrix[i][mult]):
+                    new_element = new_element + alpha_matrix[mult][j]
+            new_row.append(new_element)
+        new_matrix.append(new_row)
+
+    return new_matrix
 
 # Método Exato: Método "Composição Latina"
 print("Método da \"Composição Latina\"")
@@ -39,9 +46,7 @@ print("Matriz de adjacência B : ")
 print(mtzB)
 
 # matrizes auxiliares
-mtzP1 = []
-mtzP1 = mtzA
 
 mtzP2 = []
-mtzP2 = multiplicar_matrizes(mtzB, mtzP1, mtzP2, tam)
+mtzP2 = mult_matrix(mtzA, mtzB)
 print(mtzP2)
